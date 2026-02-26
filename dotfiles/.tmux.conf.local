@@ -34,6 +34,12 @@ set -g status-position top
 set -g default-terminal "tmux-256color"
 set -ga terminal-overrides ",*256col*:Tc"
 
+# Powerline 화살표 구분자
+tmux_conf_theme_left_separator_main='\uE0B0'
+tmux_conf_theme_left_separator_sub='\uE0B1'
+tmux_conf_theme_right_separator_main='\uE0B2'
+tmux_conf_theme_right_separator_sub='\uE0B3'
+
 #---------------------------------------
 # 키 바인딩
 #---------------------------------------
@@ -87,4 +93,6 @@ bind r source-file ~/.tmux.conf \; display "Config reloaded!"
 #---------------------------------------
 # 클립보드 (로컬 환경용, SSH에서는 동작 안 할 수 있음)
 #---------------------------------------
-bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -selection clipboard"
+# bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -selection clipboard"
+
+

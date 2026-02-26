@@ -223,6 +223,7 @@ gpakosz는 기본 tmux 키바인딩을 변경한다.
 | `prefix + Ctrl+h` | 이전 윈도우 (gpakosz 기본, n 대체) |
 | `prefix + Ctrl+l` | 다음 윈도우 (gpakosz 기본, p 대체) |
 | `prefix + r` | 설정 리로드 |
+| `prefix + y` | Claude Code 팝업 토글 (디렉토리별 세션 유지, prefix+d로 닫기) |
 
 **기타**
 - 윈도우/패널 인덱스 1부터 시작

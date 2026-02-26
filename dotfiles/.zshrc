@@ -60,9 +60,15 @@ alias gl='git log --oneline --graph -20'
 # 서버 관리
 alias ports='sudo ss -tulnp'
 alias myip='curl -s ifconfig.me && echo'
+alias traffic='vnstat'
+alias bandwidth='nload'
 
 # 마크다운
 alias md='glow'
+alias img='catimg -w $(tput cols)'
+
+# Claude Code
+alias claude='claude --dangerously-skip-permissions'
 
 #===============================================================================
 # 서버별 개별 설정 로드

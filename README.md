@@ -83,6 +83,7 @@ OS별 폴더 분리 없이 단일 구조로 관리한다.
 | `ripgrep` | grep | 10배 이상 빠른 검색, .gitignore 자동 무시 | `rg "TODO" --type py` |
 | `fd-find` | find | 직관적 문법, 빠름 | `fd "\.log$" /var/` (find보다 간결) |
 | `glow` | cat (마크다운) | 터미널에서 마크다운 렌더링 | `glow README.md` |
+| `catimg` | - | 터미널에서 이미지 표시 | `img photo.jpg` (alias 설정됨) |
 
 ### 보안
 
@@ -91,6 +92,17 @@ OS별 폴더 분리 없이 단일 구조로 관리한다.
 | `fail2ban` | SSH 브루트포스 자동 차단 (기본 5회 실패 → IP 밴) | `sudo fail2ban-client status sshd` |
 | `ufw` | 방화벽 (iptables 간편 래퍼) | `sudo ufw allow 80`, `sudo ufw status` |
 
+### 네트워크
+
+| 패키지 | 설명 | 사용 예시 |
+|--------|------|-----------|
+| `vnstat` | 누적 트래픽 통계 (일/월/년). 데몬이 기록, CPU 부하 거의 0 | `vnstat` (요약), `vnstat -m` (월별), `vnstat -d` (일별) |
+| `nload` | 실시간 대역폭 그래프 (송수신) | `nload` |
+| `iftop` | 실시간 연결별 대역폭 (어떤 IP가 트래픽 쓰는지) | `sudo iftop` |
+| `mtr` | traceroute + ping 합친 네트워크 경로 진단 | `mtr google.com` |
+| `dnsutils` | dig, nslookup 등 DNS 조회 | `dig example.com` |
+| `iperf3` | 두 서버 간 대역폭 측정 (필요할 때만 서버 띄워서 사용) | `iperf3 -s` (서버), `iperf3 -c IP` (클라이언트) |
+
 ### 개발
 
 | 패키지 | 설명 | 사용 예시 |
@@ -98,6 +110,13 @@ OS별 폴더 분리 없이 단일 구조로 관리한다.
 | `build-essential` | gcc, g++, make 등 C/C++ 빌드 도구 모음 | 소스 빌드 시 필요 |
 | `python3-pip` | Python 패키지 관리자 | `pip install requests` |
 | `Docker` + `Compose` | 컨테이너 런타임 | `docker compose up -d` |
+
+### 기타 유틸
+
+| 패키지 | 설명 | 사용 예시 |
+|--------|------|-----------|
+| `rsync` | 파일/디렉토리 동기화 (scp보다 빠르고 이어받기 지원) | `rsync -avz ./data/ user@server:/backup/` |
+| `lsof` | 열린 파일/포트/프로세스 조회 | `lsof -i :8080` (8080 포트 누가 쓰는지) |
 
 ---
 
@@ -138,6 +157,10 @@ dlog        # docker logs -f (실시간 로그)
 gs/gd/gl    # git status / diff / log --oneline --graph
 ports       # 열린 포트 확인 (ss -tulnp)
 myip        # 서버 외부 IP 확인
+img         # catimg (터미널 이미지 뷰어, 창 크기 자동 맞춤)
+claude      # claude --dangerously-skip-permissions
+traffic     # vnstat (누적 트래픽 통계)
+bandwidth   # nload (실시간 대역폭)
 ```
 
 ### 서버별 개별 설정

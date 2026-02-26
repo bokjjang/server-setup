@@ -49,7 +49,7 @@ sudo apt install -y \
 
 # 모던 CLI 도구
 info "모던 CLI 도구 설치 중..."
-sudo apt install -y fzf bat ripgrep fd-find
+sudo apt install -y fzf bat ripgrep fd-find catimg
 
 # bat → batcat 심볼릭 (Ubuntu에서는 batcat으로 설치됨)
 if command -v batcat &>/dev/null && ! command -v bat &>/dev/null; then
@@ -62,6 +62,18 @@ if command -v fdfind &>/dev/null && ! command -v fd &>/dev/null; then
     mkdir -p ~/.local/bin
     ln -sf "$(which fdfind)" ~/.local/bin/fd
 fi
+
+# 네트워크 유틸리티
+info "네트워크 유틸리티 설치 중..."
+sudo apt install -y \
+    vnstat \
+    iftop \
+    nload \
+    mtr \
+    dnsutils \
+    iperf3 \
+    rsync \
+    lsof
 
 # glow (마크다운 터미널 렌더러)
 info "glow 설치 중..."

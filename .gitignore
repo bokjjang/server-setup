@@ -1,0 +1,4 @@
+# 서버별 개별 설정 (리포에 올리지 않음)
+*.local.local
+*.server
+*.backup.*
